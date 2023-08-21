@@ -58,32 +58,32 @@ source .bashrc                   //save the file and close and type this cmd in 
 <details>
   <summary><strong>Introduction to RISC-V ISA </strong></summary>
 
-  ISA stands for "Instruction Set Architecture." It is a crucial concept in computer architecture that defines the set of instructions that a computer's hardware can execute. An ISA essentially serves as an interface between the hardware and the software, allowing software programs to communicate with and control the underlying hardware components of a computer.
+ISA stands for "Instruction Set Architecture." It is a crucial concept in computer architecture that defines the set of instructions that a computer's hardware can execute. An ISA essentially serves as an interface between the hardware and the software, allowing software programs to communicate with and control the underlying hardware components of a computer.
 
 The ISA defines various aspects of a computer's operation, including:
 
-    Instruction Set: The specific instructions that a computer's processor can understand and execute. These instructions can include arithmetic operations, memory operations, control flow instructions, and more.
+**Instruction Set:** The specific instructions that a computer's processor can understand and execute. These instructions can include arithmetic operations, memory operations, control flow instructions, and more.
 
-    Data Types: The types of data that the processor can handle, such as integers, floating-point numbers, and characters.
+**Data Types:** The types of data that the processor can handle, such as integers, floating-point numbers, and characters.
 
-    Registers: Special storage locations within the processor that are used to hold data temporarily during instruction execution. Different ISAs may have different numbers and types of registers.
+**Registers:** Special storage locations within the processor that are used to hold data temporarily during instruction execution. Different ISAs may have different numbers and types of registers.
 
-    Memory Addressing: The way in which the ISA specifies how memory locations are addressed and accessed. This includes addressing modes, which determine how operands are retrieved from memory.
+**Memory Addressing:** The way in which the ISA specifies how memory locations are addressed and accessed. This includes addressing modes, which determine how operands are retrieved from memory.
 
-    Control Flow: How the sequence of instructions is controlled, including branching (conditional and unconditional jumps) and subroutine calls.
+**Control Flow:** How the sequence of instructions is controlled, including branching (conditional and unconditional jumps) and subroutine calls.
+    
+**I/O Operations:** The instructions and mechanisms for interacting with input and output devices.
 
-    I/O Operations: The instructions and mechanisms for interacting with input and output devices.
+There are two main types of ISAs:
 
-    There are two main types of ISAs:
+**Complex Instruction Set Computer (CISC):** In CISC architectures, instructions are relatively complex and can perform multiple tasks in a single instruction. This reduces the number of instructions needed to accomplish a task but can make the hardware more complex.
 
-    Complex Instruction Set Computer (CISC): In CISC architectures, instructions are relatively complex and can perform multiple tasks in a single instruction. This reduces the number of instructions needed to accomplish a task but can make the hardware more complex.
-
-    Reduced Instruction Set Computer (RISC): RISC architectures focus on simpler instructions that are executed in a single clock cycle. RISC architectures often have a smaller set of instructions, but more instructions might be required to complete a complex task. This design simplifies the hardware and can lead to better performance and efficiency in certain scenarios.
+**Reduced Instruction Set Computer (RISC):** RISC architectures focus on simpler instructions that are executed in a single clock cycle. RISC architectures often have a smaller set of instructions, but more instructions might be required to complete a complex task. This design simplifies the hardware and can lead to better performance and efficiency in certain scenarios.
 
 
 - **ISA Base and extensions-RISC**:
   
-RISC-V has a modular design, consisting of alternative base parts, with added optional extensions. The ISA base and its extensions are developed in a collective effort between industry, the research community and educational institutions.
+**RISC-V** has a modular design, consisting of alternative base parts, with added optional extensions. The ISA base and its extensions are developed in a collective effort between industry, the research community and educational institutions.
 
 ![Screenshot from 2023-08-21 10-34-19](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/291bdb7e-9a3d-491e-a975-6e077ea67bd7)
 
