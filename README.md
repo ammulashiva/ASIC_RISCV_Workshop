@@ -261,7 +261,119 @@ here you can experiment the above program for the signed and unsigned int by cha
 
 The Application Binary Interface (ABI) for the RISC-V architecture defines a set of rules and conventions for the interaction between software components at the binary level. It encompasses how functions are called, how data is represented and manipulated, how memory is managed, and how system calls are made. The RISC-V ABI ensures compatibility and interoperability between different software modules, making it possible for programs to work seamlessly on different systems that adhere to the same ABI.
 
+![Screenshot from 2023-08-21 12-31-22](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/32abbb59-73c4-4ef4-9340-6a5300c6b8c1)
 
+### Memory Allocation 
+
+There are two different ways to load the data into registers,the data can be loaded directly to registers but as we dont have large number of registers, we can load the data into the memory and then from memory we can load the data into the registers.
+
+![Screenshot from 2023-08-21 12-31-43](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/e4a04c1c-0c8d-4c67-ad7d-8a99422e6496)
+
+RiscV belongs to little-endian memory addressing system.Little-endian memory addressing is a way of organizing and storing data in computer memory where the least significant byte (LSB) of a multi-byte value is stored at the lowest memory address, while the most significant byte (MSB) is stored at a higher memory address.This byte order is opposite to big-endian memory addressing.
+
+![Screenshot from 2023-08-21 12-32-17](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/56b024dd-d94b-41db-a961-4344dc0ec991)
+
+**ld:** This mnemonic stands for "load double-word." It's an instruction used to load a 64-bit (8-byte) value from memory into a register.
+
+**x8:** This is the destination register where the loaded value will be stored. In RISC-V assembly language, registers are denoted by the "x" prefix followed by a number (e.g., x0, x1, x2, ..., x31).
+
+**16:** This is the immediate offset value, which indicates the offset from the address stored in register x23. The offset is added to the address in x23 to calculate the memory address from which the value will be loaded.
+
+**(x23):** This indicates that the address to be used for loading the value is stored in register x23. x23 is the base register, and the offset is added to its value to compute the effective memory address.
+    
+![Screenshot from 2023-08-21 12-32-54](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/4fb07b77-b0e1-46db-94de-beeaa1f9912a)
+
+The format of instruction can be seen below.
+
+![Screenshot from 2023-08-21 12-33-28](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/9690b9ec-54ce-4fab-8e0f-6e7c6949034c)
+
+The add instruction below performs the addition operation by adding the values stored in registers x24 and x8 together. The result of the addition is then stored back in register x8, overwriting the previous value.
+
+![Screenshot from 2023-08-21 12-34-01](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/8e192c94-5f53-4a1e-af0a-6f58a5446119)
+
+![Screenshot from 2023-08-21 12-34-44](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/1f3da0f3-067a-4ea8-8c03-0f9c5b20faff)
+
+The below image shows the different ABI names,registers and its usages.
+
+![Screenshot from 2023-08-21 12-35-13](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/a7f233a0-5ea2-45b0-92d8-652388ccdb7b)
+
+</details>
+
+<details>
+	<summary><strong>Lab Work using ABI function calls</strong></summary>
+
+Let us perform the lab to rewrite c program in asm language.The main c program passes a0 and a1 to ASM block and the ASM returns a0 back to the main c program.
+
+![Screenshot from 2023-08-21 12-46-06](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/fbdf6af9-86ec-477e-bff9-d06a9ae0d423)
+
+The algorithm for the operation of program can be seen below.
+
+![Screenshot from 2023-08-21 12-46-28](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/a3426bdb-68ee-48fe-897a-0363b301a747)
+**Example_1**
+
+Consider 1to9_custom.c file shown below : 
+
+```bash
+
+#include<stdio.h>
+
+extern int load(int x, int y);
+
+int main() {
+        int result = 0 ;
+        int count = 9 ;
+        result = load(0x0, count+1 );
+        printf("Sum of numbers from 1 to %d is %d \n ",count , result );
+}
+
+```
+This is load.S file
+
+```bash
+
+.section .text
+.global load
+.type load, @function
+
+load:
+        add  a4, a0, 0x0
+        add  a2, a0, a1
+        add  a3, a0, 0x0
+loop:   add  a4, a3, a4
+        addi a3, a3, 1
+        blt  a3, a2, loop
+        add  a0, a4, 0x0
+        ret
+
+```
+
+Use the below commands to run the above example :
+
+```
+$riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o 1to9_custom.o 1to9_custom.c load.S
+$spike pk 1to9_custom.o
+$riscv64-unknown-elf-objdump -d 1to9_custom.o | less
+
+```
+
+Below is the screenshot showing the exicution of aboe program :
+
+![Screenshot from 2023-08-21 12-55-26](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/552aec3a-36c5-4dcb-984c-52a1f3980d47)
+
+Below is the Screen Shot showing the object file created :
+
+![Screenshot from 2023-08-21 12-55-00](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/747595cf-9037-4c53-9de1-935cf4c9d7db)
+
+## Lab to run C program on RISC-V CPU
+We will load the hex format of C Program to the RISC-V CPU which is written in verilog and the end result is displayed.
+
+
+Follow the below commands to run the program.
+
+```
+chmod rv32im.sh
+./rv32im.sh
+```
 
 
 </details>
