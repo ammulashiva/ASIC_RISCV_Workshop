@@ -185,13 +185,16 @@ In a 64-bit computer architecture,
 **Double Word:** In a 64-bit architecture, a "double word" is a unit of data that is twice the size of a word, hence 128 bits or 16 bytes.Double words are used for larger data structures, floating-point numbers, and certain specialized operations that require more storage space.
 
         
+![Screenshot from 2023-08-21 11-54-55](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/e23174aa-f94a-4055-9164-ac3665acabe9)
 
 
 Here below we can see the representation of unsigned numbers in 64 bit architecture.
 
-
+![Screenshot from 2023-08-21 11-55-13](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/20c7e992-1c74-463d-83c1-f2d834bedbf1)
 
 The format and memory for different data types are given below.
+
+![Screenshot from 2023-08-21 11-56-58](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/21a0dd58-5f49-4558-895f-13b49c08b3e0)
 
 
 </details>
