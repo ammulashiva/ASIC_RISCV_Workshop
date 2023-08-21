@@ -215,6 +215,7 @@ int main()
 ```
 Below is the figure showing the execution of above program :
 
+![Screenshot from 2023-08-21 12-05-19](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/88c33ad0-2894-4ac3-81f8-a71420fb6e3c)
 
 **Example_2**
 
@@ -240,14 +241,11 @@ int main()
 
 Below is the figure showing the execution of above program :
 
+![Screenshot from 2023-08-21 12-13-07](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/9e38eac2-8d84-4fff-b578-2a9fd920045c)
+
 
 here you can experiment the above program for the signed and unsigned int by changin the power value greater than 64 , and also by changing the format of integer:
 
 
 </details>
 
-<details>
-    
-  </details>
-  
-<details>
