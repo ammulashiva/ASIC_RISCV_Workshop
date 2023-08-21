@@ -397,6 +397,28 @@ firmware32.hex:
 ## Day 3- Digital Logic With TL Verilog and Makerchip 
 
 <details>
+	<summary><strong>Introduction</strong></summary>
+
+Transaction-Level Verilog (TL-Verilog) is an extension of traditional Verilog, a hardware description language (HDL) used for designing digital electronic systems. TL-Verilog was developed by a company called Redwood EDA and is designed to improve the productivity and ease of designing digital systems, especially for larger and complex designs.
+
+TL-Verilog introduces several key concepts and features that aim to simplify the design process and make it more accessible to a wider range of engineers, including those who might not have extensive experience in digital design. Some of the main features of TL-Verilog include:
+
+**Transaction-Level Modeling:** In traditional Verilog, designers work with low-level signals and logic gates. TL-Verilog, on the other hand, operates at a higher level of abstraction by allowing designers to describe designs using transaction-level semantics. This means that designers can focus on describing the functional behavior of their designs rather than worrying about low-level implementation details.
+
+**Simplified Parallelism:** TL-Verilog introduces constructs that make it easier to describe parallelism in designs. For instance, the "fsm" block allows designers to specify finite state machines in a more intuitive way, making it simpler to design complex control logic.
+
+**Pipeline Abstraction:** TL-Verilog enables easy description of pipelined designs, which are common in modern digital systems. This abstraction makes it straightforward to express designs with stages that process data sequentially.
+
+**Untimed Abstraction:** Designs in TL-Verilog can be specified in an untimed manner, focusing on the relative timing of operations rather than precise clock cycles. This abstraction is particularly useful for describing algorithms and high-level behavior.
+
+**Automatic Pipelining:** TL-Verilog compilers can automatically insert pipeline stages based on the provided design description. This simplifies the process of designing and optimizing pipelined systems.
+
+**Hierarchical Design:** TL-Verilog encourages hierarchical design by allowing the description of modules with clearly defined interfaces. This helps manage the complexity of larger designs.
+ 
+</details>
+
+
+<details>
 	<summary><strong>Combinational Logic in TL Verilog</strong></summary>
 
 
