@@ -583,9 +583,188 @@ Output:
 <details>
 	<summary><strong>Validity</strong></summary>
 
+Validity is another feature in TL verilog which is asserted if a particular transactions in a pipeline is valid or true. A new scope, called “when” scope is introduced for this and it is denoted as `?$valid`. This new scope has many advantages - easier design, cleaner debug, better error checking and automated clock gating.
+Validity provides :
+- Easier debug
+- Cleaner design
+- Better error checking
+- Automated Clock gating
+  
+# Clock gating
 
- 
+-Why clock gating?
+
+• Clock signals are distributed to EVERY flip-flop.
+• Clocks toggle twice per cycle.
+• This consumes power.
+
+- Clock gating avoids toggling clock signals.
+- TL-Verilog can produce fine-grained gating (or enables).
+
+## Lab On Distance Accumulator with Pythagoran's theorem:
+
+Block diagram :
+
+<img width="800" alt="Screenshot 2023-08-20 at 4 16 23 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/0aefad73-b238-4cd7-8d01-472ff9d53a15">
+
+```
+$reset = *reset;
+
+   |calc
+      @1
+         $reset = *reset;
+            
+      ?$vaild      
+         @1
+            $aa_seq[31:0] = $aa[3:0] * $aa;
+            $bb_seq[31:0] = $bb[3:0] * $bb;;
+      
+         @2
+            $cc_seq[31:0] = $aa_seq + $bb_seq;;
+      
+         @3
+            $cc[31:0] = sqrt($cc_seq);
+            
+      @4
+         $total_distance[63:0] = 
+            $reset ? '0 :
+            $valid ? >>1$total_distance + $cc :
+                     >>1$total_distance;
+         
+```
+
+Output:
+
+<img width="1295" alt="Screenshot 2023-08-20 at 5 36 41 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/b7700db5-cd2c-4f23-975b-edbcfed9b571">
+
+
+## Lab on cycle Calculator with validity 
+
+Block Diagram :
+
+<img width="699" alt="Screenshot 2023-08-20 at 4 31 53 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/38d83577-ec28-4dc0-b5af-77299d6bf3d0">
+
+```
+|calc
+      @0
+         $reset = *reset;
+         
+      @1
+         $val1 [31:0] = >>2$out [31:0];
+         $val2 [31:0] = $rand2[3:0];
+         
+         $valid = $reset ? 1'b0 : >>1$valid + 1'b1 ;
+         $valid_or_reset = $valid || $reset;
+         
+      ?$vaild_or_reset
+         @1   
+            $sum [31:0] = $val1 + $val2;
+            $diff[31:0] = $val1 - $val2;
+            $prod[31:0] = $val1 * $val2;
+            $quot[31:0] = $val1 / $val2;
+            
+         @2   
+            $out [31:0] = $reset ? 32'b0 :
+                          ($op[1:0] == 2'b00) ? $sum :
+                          ($op[1:0] == 2'b01) ? $diff :
+                          ($op[1:0] == 2'b10) ? $prod :
+                                                $quot ;
+            
+```
+
+Output:
+
+<img width="1295" alt="Screenshot 2023-08-20 at 5 29 11 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/eaed8689-1adc-432f-80c0-8b14bb6a7498">
+
+## Lab on Calculator with single value memory:
+
+Block diagram :
+
+<img width="733" alt="Screenshot 2023-08-20 at 5 40 20 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/53f28899-8504-4279-ad9e-0ae191fcf70b">
+
+```
+ |calc
+      @0
+         $reset = *reset;
+         
+      @1
+         $val1 [31:0] = >>2$out;
+         $val2 [31:0] = $rand2[3:0];
+         
+         $valid = $reset ? 1'b0 : >>1$valid + 1'b1 ;
+         $valid_or_reset = $valid || $reset;
+         
+      ?$vaild_or_reset
+         @1   
+            $sum [31:0] = $val1 + $val2;
+            $diff[31:0] = $val1 - $val2;
+            $prod[31:0] = $val1 * $val2;
+            $quot[31:0] = $val1 / $val2;
+            
+         @2   
+            $mem[31:0] = $reset ? 32'b0 :
+                         ($op[2:0] == 3'b101) ? $val1 : >>2$mem ;
+            
+            $out [31:0] = $reset ? 32'b0 :
+                          ($op[2:0] == 3'b000) ? $sum :
+                          ($op[2:0] == 3'b001) ? $diff :
+                          ($op[2:0] == 3'b010) ? $prod :
+                          ($op[2:0] == 3'b011) ? $quot :
+                          ($op[2:0] == 3'b100) ? >>2$mem : >>2$out ;
+            
+            
+```
+
+Output:
+
+<img width="1295" alt="Screenshot 2023-08-20 at 5 41 24 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/218bbb95-5f88-4e15-b471-4f933451a5ae">
+
 </details>
+
+<details>
+	<summary><strong>Wrap Up</strong></summary>
+Here we gonna jst explore some examples given in makerchip ide 
+
+## Conway Game Of Life
+
+Here we can study Hierarchy Concept
+
+![Screenshot 2023-08-20 at 5 52 33 PM](https://github.com/alwinshaju08/RISCV/assets/69166205/11e8c3d3-8f62-4ef5-af41-c111f425ee4b)
+
+## Pythagoran's theorem:
+
+Block Diagram:
+
+<img width="675" alt="Screenshot 2023-08-20 at 5 55 35 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/dcbe146d-edca-4b94-9a52-ab3cfec1e04f">
+
+```
+   |calc
+      
+      // DUT
+      /coord[1:0]
+         @1
+            $sq[9:0] = $value[3:0] ** 2;
+      @2
+         $cc_sq[10:0] = /coord[0]$sq + /coord[1]$sq;
+      @3
+         $cc[4:0] = sqrt($cc_sq);
+
+
+      // Print
+      @3
+         \SV_plus
+            always_ff @(posedge clk) begin
+               \$display("sqrt((\%2d ^ 2) + (\%2d ^ 2)) = %2d", /coord[0]$value, /coord[1]$value, $cc);
+            end
+
+
+```
+Output:
+
+<img width="1289" alt="Screenshot 2023-08-20 at 5 57 23 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/41c27397-3d7e-4489-8650-d6b182f0a0a4">
+
+</details>
+
 
 
 
