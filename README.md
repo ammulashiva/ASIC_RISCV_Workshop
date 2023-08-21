@@ -421,9 +421,41 @@ TL-Verilog introduces several key concepts and features that aim to simplify the
 <details>
 	<summary><strong>Combinational Logic in TL Verilog</strong></summary>
 
+Makerchip IDE
+
+Makerchip is a free online environment for developing high-quality integrated circuits. You can code, compile, simulate, and debug Verilog designs, all from your browser. Your code, block diagrams, and waveforms are tightly integrated.
+
+## Loading pythagorean Example on Makerchip IDE
+
+![Screenshot from 2023-08-21 14-52-02](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/3369a259-97df-4105-81ad-9c041822fbf3)
+
+## AND Gate Example on Makerchip IDE
+
+we start with understanding the Makerchip IDE platform by trying some basic digital logic gate with And Gate being the standard one. In TL verilog we simply code the logic itself viz $out = $in1 & $in2  without requiring to declare the variables separately and $in assignment is also not required. The output of the above is as shown in figure below. We note that simultaneous highlighting of the variable is possible at the output.
+
+<img width="1274" alt="Screenshot 2023-08-19 at 10 33 45 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/2adf559c-45f2-41f4-9f19-2602b09266a4">
+
+## Lab On Understanding Usage Of Vector
+
+<img width="1290" alt="Screenshot 2023-08-20 at 2 31 28 AM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/83c2d94c-ac46-40e0-9c78-fbe64a7669f6">
+
+## Multiplexer on Makerchip IDE
+
+<img width="1290" alt="Screenshot 2023-08-20 at 2 30 47 AM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/5094aaab-ad29-45fe-992d-4215f90eea83">
+
+## Calculator on Makerchip IDE
+
+Now a lab on combinational calculator is implemented that can perform +, -, *, / on two input values. The snapshot of the code, waveform and diagram is as shown below.
+
+<img width="1401" alt="Screenshot 2023-08-20 at 3 09 19 AM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/ece71b8a-04b6-404a-ac81-384eba0d87a3">
 
  
 </details>
 
+<details>
+	<summary><strong> Sequential Logic in TL Verilog</strong></summary>
 
+
+
+</details>
 
