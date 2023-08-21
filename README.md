@@ -495,9 +495,9 @@ Output:
 
 
 </details>
-<details> <summary > Pipelining </summary>
+<details> <summary ><strong>Pipelining</strong></summary>
 	
-Pipelining or timing abstract is an important feature in TL verilog as it can be implemented very easily with fewer codes as compared to system verilog which reduces bugs to a great extent. An example of the pipeling for pythogoras theorem using both TL verilog and system verilog in this repo . In TL verilog pipeling can be implemented by defining the pipeline as |calc and the different pipeline stages should be properly align and are indicated by @1, @2 and so on.
+**Pipelining** or **timing abstract** is an important feature in TL verilog as it can be implemented very easily with fewer codes as compared to system verilog which reduces bugs to a great extent. An example of the pipeling for pythogoras theorem using both TL verilog and system verilog in this repo . In TL verilog pipeling can be implemented by defining the pipeline as |calc and the different pipeline stages should be properly align and are indicated by @1, @2 and so on.
 
 ### Lab To Compute Total Distance 
 
@@ -578,6 +578,13 @@ Output:
 
 ![Screenshot from 2023-08-21 16-58-34](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/f18bd3ef-228d-45c6-8e5e-580137359356)
 
+</details>
+
+<details>
+	<summary><strong>Validity</strong></summary>
+
+
+ 
 </details>
 
 
