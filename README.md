@@ -196,6 +196,53 @@ The format and memory for different data types are given below.
 
 ![Screenshot from 2023-08-21 11-56-58](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/21a0dd58-5f49-4558-895f-13b49c08b3e0)
 
+**Example_1**
+
+Consider an example to show the maximum value of an unsigned long long integer :
+
+```bash
+
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+        unsigned long long int max = (unsigned long long int)(pow(2,64) -1);
+        printf("maximum of unsigned long long int is %llu \n ", max) ;
+        return 0 ;
+}
+
+```
+Below is the figure showing the execution of above program :
+
+
+**Example_2**
+
+Consider an example to show the maximum value of an unsigned long long integer :
+
+```bash
+
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+        long long int max = ( long long int)(pow(2,63) -1);
+         long long int min = ( long long int)(pow(2,63) *-1);
+
+        printf("maximum of unsigned long long int is %lld \n ", max) ;
+         printf("minimum of unsigned long long int is %lld \n ", min) ;
+
+        return 0 ;
+}
+
+```
+
+Below is the figure showing the execution of above program :
+
+
+here you can experiment the above program for the signed and unsigned int by changin the power value greater than 64 , and also by changing the format of integer:
+
 
 </details>
 
