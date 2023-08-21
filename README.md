@@ -605,8 +605,7 @@ Validity provides :
 
 Block diagram :
 
-<img width="800" alt="Screenshot 2023-08-20 at 4 16 23 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/0aefad73-b238-4cd7-8d01-472ff9d53a15">
-
+![Screenshot from 2023-08-21 18-46-37](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/ca127db2-958e-429a-8399-1a694c594ca5)
 ```
 $reset = *reset;
 
@@ -635,14 +634,13 @@ $reset = *reset;
 
 Output:
 
-<img width="1295" alt="Screenshot 2023-08-20 at 5 36 41 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/b7700db5-cd2c-4f23-975b-edbcfed9b571">
-
+![Screenshot from 2023-08-21 18-47-36](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/3b539fe8-9c67-4063-b88d-ebedbff18564)
 
 ## Lab on cycle Calculator with validity 
 
 Block Diagram :
 
-<img width="699" alt="Screenshot 2023-08-20 at 4 31 53 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/38d83577-ec28-4dc0-b5af-77299d6bf3d0">
+![Screenshot from 2023-08-21 18-47-59](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/95ebfe2f-b17e-4d9b-9159-a165c94a6f4b)
 
 ```
 |calc
@@ -674,14 +672,13 @@ Block Diagram :
 
 Output:
 
-<img width="1295" alt="Screenshot 2023-08-20 at 5 29 11 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/eaed8689-1adc-432f-80c0-8b14bb6a7498">
+![Screenshot from 2023-08-21 18-47-09](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/c216743f-fc02-4453-ae03-dfe42b3fedb7)
 
 ## Lab on Calculator with single value memory:
 
 Block diagram :
 
-<img width="733" alt="Screenshot 2023-08-20 at 5 40 20 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/53f28899-8504-4279-ad9e-0ae191fcf70b">
-
+![Screenshot from 2023-08-21 18-48-22](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/dccf2182-098d-446d-ac55-6bbb707cebaf)
 ```
  |calc
       @0
@@ -717,7 +714,7 @@ Block diagram :
 
 Output:
 
-<img width="1295" alt="Screenshot 2023-08-20 at 5 41 24 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/218bbb95-5f88-4e15-b471-4f933451a5ae">
+![Screenshot from 2023-08-21 18-48-46](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/0036a27e-951c-4e42-865d-1ca3f79052d4)
 
 </details>
 
@@ -729,13 +726,13 @@ Here we gonna jst explore some examples given in makerchip ide
 
 Here we can study Hierarchy Concept
 
-![Screenshot 2023-08-20 at 5 52 33 PM](https://github.com/alwinshaju08/RISCV/assets/69166205/11e8c3d3-8f62-4ef5-af41-c111f425ee4b)
+![Screenshot from 2023-08-21 18-49-27](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/0d02172b-c84f-4702-b81c-6400c57cdd0f)
 
 ## Pythagoran's theorem:
 
 Block Diagram:
 
-<img width="675" alt="Screenshot 2023-08-20 at 5 55 35 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/dcbe146d-edca-4b94-9a52-ab3cfec1e04f">
+![Screenshot from 2023-08-21 18-49-01](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/82235760-a82b-4afd-9246-45e16243a840)
 
 ```
    |calc
@@ -760,8 +757,7 @@ Block Diagram:
 
 ```
 Output:
-
-<img width="1289" alt="Screenshot 2023-08-20 at 5 57 23 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/41c27397-3d7e-4489-8650-d6b182f0a0a4">
+![Screenshot from 2023-08-21 18-49-12](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/38ec3ab0-6dbd-48a4-993c-6b04e68d8509)
 
 </details>
 
