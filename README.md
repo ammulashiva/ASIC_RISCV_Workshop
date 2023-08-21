@@ -306,9 +306,10 @@ Let us perform the lab to rewrite c program in asm language.The main c program p
 
 ![Screenshot from 2023-08-21 12-46-06](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/fbdf6af9-86ec-477e-bff9-d06a9ae0d423)
 
-The algorithm for the operation of program can be seen below.
+Here we develope an alogorithm to count the sum of numbers from point **a(a0)** to point **b(a1)** .The algorithm for the operation of program can be seen below.
 
 ![Screenshot from 2023-08-21 12-46-28](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/a3426bdb-68ee-48fe-897a-0363b301a747)
+
 **Example_1**
 
 Consider 1to9_custom.c file shown below : 
@@ -365,17 +366,42 @@ Below is the Screen Shot showing the object file created :
 ![Screenshot from 2023-08-21 12-55-00](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/747595cf-9037-4c53-9de1-935cf4c9d7db)
 
 ## Lab to run C program on RISC-V CPU
-We will load the hex format of C Program to the RISC-V CPU which is written in verilog and the end result is displayed.
 
 
-Follow the below commands to run the program.
+![Screenshot from 2023-08-21 14-15-11](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/3be5916d-cf5d-4a98-9f1e-e5a05bcd84cf)
+
+Here we have riscv cpu program code through which we send the HEX format file of c program to show output the output of the given code 
 
 ```
-chmod rv32im.sh
-./rv32im.sh
-```
+git clone https://github.com/kunalg123/riscv_workshop_collaterals.git
+cd riscv_workshop_collaterals
+cd labs
+chmod 777 rv32im.sh
+./rv32im.sh 
 
+```
+![Screenshot from 2023-08-21 14-09-41](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/641a84d6-5b1d-42dc-8cf6-cb77e5aa0d34)
+
+Input hex file to sent through verilog code:
+
+firmware.hex:
+
+![Screenshot from 2023-08-21 14-16-39](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/45c06406-a921-4f49-84bf-8ee43867f7e2)
+
+firmware32.hex:
+
+![Screenshot from 2023-08-21 14-16-54](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/1d58b210-0e5c-4901-9c6a-590d6acac451)
 
 </details>
+
+## Day 3- Digital Logic With TL Verilog and Makerchip 
+
+<details>
+	<summary><strong>Combinational Logic in TL Verilog</strong></summary>
+
+
+ 
+</details>
+
 
 
