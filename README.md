@@ -425,37 +425,160 @@ Makerchip IDE
 
 Makerchip is a free online environment for developing high-quality integrated circuits. You can code, compile, simulate, and debug Verilog designs, all from your browser. Your code, block diagrams, and waveforms are tightly integrated.
 
-## Loading pythagorean Example on Makerchip IDE
+### Loading pythagorean Example on Makerchip IDE
 
 ![Screenshot from 2023-08-21 14-52-02](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/3369a259-97df-4105-81ad-9c041822fbf3)
 
-## AND Gate Example on Makerchip IDE
+### AND Gate Example on Makerchip IDE
 
 we start with understanding the Makerchip IDE platform by trying some basic digital logic gate with And Gate being the standard one. In TL verilog we simply code the logic itself viz $out = $in1 & $in2  without requiring to declare the variables separately and $in assignment is also not required. The output of the above is as shown in figure below. We note that simultaneous highlighting of the variable is possible at the output.
 
-<img width="1274" alt="Screenshot 2023-08-19 at 10 33 45 PM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/2adf559c-45f2-41f4-9f19-2602b09266a4">
+![Screenshot from 2023-08-21 17-11-47](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/9362e65a-410e-48ee-81f4-18f6439f0472)
 
-## Lab On Understanding Usage Of Vector
+### Lab On Understanding Usage Of Vector
 
-<img width="1290" alt="Screenshot 2023-08-20 at 2 31 28 AM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/83c2d94c-ac46-40e0-9c78-fbe64a7669f6">
+![Screenshot from 2023-08-21 17-12-01](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/939e7af2-9959-401e-ad73-64fc378b77b0)
 
-## Multiplexer on Makerchip IDE
+### Multiplexer on Makerchip IDE
 
-<img width="1290" alt="Screenshot 2023-08-20 at 2 30 47 AM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/5094aaab-ad29-45fe-992d-4215f90eea83">
+![Screenshot from 2023-08-21 17-12-13](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/ce50a98f-1688-4d7d-99b2-aa2afd4b8919)
 
-## Calculator on Makerchip IDE
+### Calculator on Makerchip IDE
 
 Now a lab on combinational calculator is implemented that can perform +, -, *, / on two input values. The snapshot of the code, waveform and diagram is as shown below.
 
-<img width="1401" alt="Screenshot 2023-08-20 at 3 09 19 AM" src="https://github.com/alwinshaju08/RISCV/assets/69166205/ece71b8a-04b6-404a-ac81-384eba0d87a3">
-
+![Screenshot from 2023-08-21 17-12-24](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/b362edfc-e98f-4f4b-86de-08930abb4041)
  
 </details>
 
 <details>
 	<summary><strong> Sequential Logic in TL Verilog</strong></summary>
 
+Sequential logic refers to a type of digital logic circuit or system in which the output depends not only on the current inputs but also on the previous states of the circuit. Unlike combinational logic, which only considers the current inputs to generate outputs, sequential logic incorporates memory elements to store information and generate outputs based on both current inputs and past history.
+
+## Lab On Free Running Counter
+
+![Screenshot from 2023-08-21 16-33-29](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/1f839c83-130b-4a1e-bf92-74506251b680)
+
+Output:
+
+![Screenshot from 2023-08-21 16-32-42](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/461bff85-15fb-490d-840f-8fffe8fec0bc)
+
+## Sequential Calculator To Remembers Previous Results For Next Calculations 
+
+The sequential calculator is implemented where the output of the previous stage serves as the input of this stage. The snapshot of the sequential calculator is included below and the code is provided 
+
+![Screenshot from 2023-08-21 16-34-03](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/bb01883c-16e3-4b6d-8bf5-af107168b6e2)
+
+```
+$val1[31:0] = >>1$out[31:0];
+         $val2[31:0] = $rand2[3:0];
+         $op[1:0] = $rand3[1:0];
+   
+         $sum[31:0] = $val1[31:0] + $val2[31:0];
+         $diff[31:0] = $val1[31:0] - $val2[31:0];
+         $prod[31:0] = $val1[31:0] * $val2[31:0];
+         $quot[31:0] = $val1[31:0] / $val2[31:0];
+   
+         $out[31:0] = $reset ? 32'b0 : (($op[1:0]==2'b00) ? $sum :
+                                       ($op[1:0]==2'b01) ? $diff :
+                                          ($op[1:0]==2'b10) ? $prod : $quot);
+   
+   `BOGUS_USE($out);
+   `BOGUS_USE($reset);
+
+```
+
+Output:
+
+![Screenshot from 2023-08-21 16-58-34](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/f18bd3ef-228d-45c6-8e5e-580137359356)
 
 
 </details>
+<details> <summary > Pipelining </summary>
+	
+Pipelining or timing abstract is an important feature in TL verilog as it can be implemented very easily with fewer codes as compared to system verilog which reduces bugs to a great extent. An example of the pipeling for pythogoras theorem using both TL verilog and system verilog in this repo . In TL verilog pipeling can be implemented by defining the pipeline as |calc and the different pipeline stages should be properly align and are indicated by @1, @2 and so on.
+
+### Lab To Compute Total Distance 
+
+![Screenshot from 2023-08-21 17-09-18](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/706712af-9058-4c31-96fa-746fded6427b)
+
+In the above implenation, we can observe the errors in the pipeline:
+
+
+![Screenshot from 2023-08-21 17-09-44](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/211ec635-930a-4856-a3ed-f458ea04403c)
+
+
+### Lab On Counter and Calculator in Pipeline
+
+Block diagram : 
+
+![Screenshot from 2023-08-21 17-04-03](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/9a813a8f-337c-4956-90c6-2501fb6a9339)
+
+```
+   $reset = *reset;
+   
+   |calc
+      @1
+         $val1[31:0] = >>1$out;
+	 $val2[31:0] = $rand2[3:0];
+
+         $sum[31:0] = $val1+$val2;
+         $diff[31:0] = $val1-$val2;
+         $prod[31:0] = $val1*$val2;
+         $quot[31:0] = $val1/$val2;
+
+         $out[31:0] = $reset ? 0 : ($op[1] ? ($op[0] ? $div : $prod):($op[0] ? $diff : $sum));
+         
+         $cnt[31:0] = $reset ? 0 : >>1$cnt + 1; 
+
+```
+
+Output:
+
+![Screenshot from 2023-08-21 17-03-39](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/e711bcc2-8433-4cbc-b7a7-ddb828ace3e1)
+
+### Lab On 2 Cycle Calculator
+
+Below the snapshot of the pipeline sequential calcuator is included. Here the first pipeline stage consists of the input followed by arithimetic operation in the second pipeline stage and finally the ouput is included 2 cycles ahead in the third pipeline stage.
+
+```
+|calc
+      @1
+         $reset = *reset;
+         
+         
+         $val1[31:0] = >>2$out[31:0];
+         $val2[31:0] = $rand2[3:0];
+         $op[1:0] = $rand3[1:0];
+         $sum[31:0] = $val1[31:0] + $val2[31:0];
+         $diff[31:0] = $val1[31:0] - $val2[31:0];
+         $prod[31:0] = $val1[31:0] * $val2[31:0];
+         $quot[31:0] = $val1[31:0] / $val2[31:0];
+         
+         $num = $reset ? 0 : >>1$num+1;
+      @2   
+         $out[31:0] = ($reset|!$num) ? 32'b0 : (($op[1:0]==2'b00) ? $sum :
+                                       ($op[1:0]==2'b01) ? $diff :
+                                          ($op[1:0]==2'b10) ? $prod : $quot);
+         
+         
+         
+   
+   `BOGUS_USE($out);
+   `BOGUS_USE($reset);
+
+```
+Block diagram : 
+
+![Screenshot from 2023-08-21 17-02-45](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/1a7591db-d8fc-42e5-b520-053544439054)
+
+
+Output:
+
+![Screenshot from 2023-08-21 16-58-34](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/f18bd3ef-228d-45c6-8e5e-580137359356)
+
+</details>
+
+
 
