@@ -11,20 +11,33 @@ This github repository summarizes the progress made in the ASIC class about RISC
 I installed the needed tools in ubuntu .
     
 Steps to install Risc-tools
+Open the terminal and type the following commands given below
 
 ```bash
 sudo apt install libboost-all-dev
+
 git clone https://github.com/kunalg123/riscv_workshop_collaterals.git
+
 cd riscv_workshop_collaterals
+
 chmod +x run.sh
+
 ./run.sh                                       // you may get an error, ignore it  and type the following command
+
 cd ~/riscv_toolchain/iverilog/
+
 git checkout --track -b v10-branch origin/v10-branch
+
 git pull 
+
 chmod 777 autoconf.sh 
+
 ./autoconf.sh 
+
 ./configure 
+
 make
+
 sudo make install
 
 ```
@@ -33,7 +46,9 @@ sudo make install
 ```
 
 gedit .bashrc                         //opens the file, type or copy the below path into the file
+
 export PATH="/home/ammula-shiva-kumar/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/bin:$PATH"            //Instead of ammula-shiva-kumar put your username
+
 source .bashrc                   //save the file and close and type this cmd in terminal.
 
 ```
