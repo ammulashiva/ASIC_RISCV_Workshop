@@ -27,7 +27,7 @@ chmod +x run.sh
 
 cd ~/riscv_toolchain/iverilog/
 
-git checkout --track -b v10-branch origin/v10-branch
+git checkout                                   //track -b v10-branch origin/v10-branch
 
 git pull 
 
@@ -252,7 +252,7 @@ here you can experiment the above program for the signed and unsigned int by cha
 
 </details>
 
-## Day 2-Introduction to ABI and Basic Verification Flow
+## Day 2 - Introduction to ABI and Basic Verification Flow
 
 <details>
 	<summary>Application Binary Interface</summary>
