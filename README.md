@@ -255,8 +255,15 @@ here you can experiment the above program for the signed and unsigned int by cha
 ## Day 2 - Introduction to ABI and Basic Verification Flow
 
 <details>
-	<summary>Application Binary Interface</summary>
+	<summary><strong>Application Binary Interface</strong></summary>
 
- 
+ ## Application Binary Interface
+
+The Application Binary Interface (ABI) for the RISC-V architecture defines a set of rules and conventions for the interaction between software components at the binary level. It encompasses how functions are called, how data is represented and manipulated, how memory is managed, and how system calls are made. The RISC-V ABI ensures compatibility and interoperability between different software modules, making it possible for programs to work seamlessly on different systems that adhere to the same ABI.
+
+
+
+
 </details>
+
 
