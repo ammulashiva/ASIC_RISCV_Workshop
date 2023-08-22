@@ -779,3 +779,17 @@ Output:
 
 </details>
 
+
+
+## Reference 
+- https://www.vsdiat.com
+- https://en.wikipedia.org/wiki/Toolchain
+- https://en.wikipedia.org/wiki/GNU_toolchain
+- https://github.com/riscv/riscv-gnu-toolchain
+- https://github.com/KanishR1
+- https://github.com/riscv-software-src/homebrew-riscv/tree/main
+- https://redwoodeda.com
+- https://ieeexplore.ieee.org/document/8119264
+- https://github.com/shivanishah269
+- https://raw.githubusercontent.com/BalaDhinesh/RISC-V_MYTH_Workshop
+- https://github.com/stevehoover
