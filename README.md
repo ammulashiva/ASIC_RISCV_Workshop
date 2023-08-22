@@ -634,11 +634,12 @@ $reset = *reset;
 
 Output:
 
-![Screenshot from 2023-08-21 18-47-36](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/3b539fe8-9c67-4063-b88d-ebedbff18564)
+![Screenshot from 2023-08-21 18-47-09](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/c216743f-fc02-4453-ae03-dfe42b3fedb7)
 
 ## Lab on cycle Calculator with validity 
 
 Block Diagram :
+![Screenshot from 2023-08-21 18-47-36](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/3b539fe8-9c67-4063-b88d-ebedbff18564)
 
 ![Screenshot from 2023-08-21 18-47-59](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/95ebfe2f-b17e-4d9b-9159-a165c94a6f4b)
 
@@ -672,7 +673,6 @@ Block Diagram :
 
 Output:
 
-![Screenshot from 2023-08-21 18-47-09](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/c216743f-fc02-4453-ae03-dfe42b3fedb7)
 
 ## Lab on Calculator with single value memory:
 
@@ -726,13 +726,13 @@ Here we gonna jst explore some examples given in makerchip ide
 
 Here we can study Hierarchy Concept
 
-![Screenshot from 2023-08-21 18-49-27](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/0d02172b-c84f-4702-b81c-6400c57cdd0f)
+![Screenshot from 2023-08-21 18-49-01](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/82235760-a82b-4afd-9246-45e16243a840)
 
 ## Pythagoran's theorem:
 
 Block Diagram:
 
-![Screenshot from 2023-08-21 18-49-01](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/82235760-a82b-4afd-9246-45e16243a840)
+![Screenshot from 2023-08-21 18-49-12](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/38ec3ab0-6dbd-48a4-993c-6b04e68d8509)
 
 ```
    |calc
@@ -757,7 +757,8 @@ Block Diagram:
 
 ```
 Output:
-![Screenshot from 2023-08-21 18-49-12](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/38ec3ab0-6dbd-48a4-993c-6b04e68d8509)
+
+![Screenshot from 2023-08-21 18-49-27](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/0d02172b-c84f-4702-b81c-6400c57cdd0f)
 
 </details>
 
