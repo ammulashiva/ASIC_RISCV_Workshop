@@ -590,7 +590,7 @@ Validity provides :
 - Better error checking
 - Automated Clock gating
   
-# Clock gating
+### Clock gating
 
 -Why clock gating?
 
@@ -601,7 +601,7 @@ Validity provides :
 - Clock gating avoids toggling clock signals.
 - TL-Verilog can produce fine-grained gating (or enables).
 
-## Lab On Distance Accumulator with Pythagoran's theorem:
+### Lab On Distance Accumulator with Pythagoran's theorem:
 
 Block diagram :
 
@@ -636,7 +636,7 @@ Output:
 
 ![Screenshot from 2023-08-21 18-47-09](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/c216743f-fc02-4453-ae03-dfe42b3fedb7)
 
-## Lab on cycle Calculator with validity 
+### Lab on cycle Calculator with validity 
 
 Block Diagram :
 ![Screenshot from 2023-08-21 18-47-36](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/3b539fe8-9c67-4063-b88d-ebedbff18564)
@@ -674,7 +674,7 @@ Block Diagram :
 Output:
 
 
-## Lab on Calculator with single value memory:
+### Lab on Calculator with single value memory:
 
 Block diagram :
 
@@ -722,13 +722,13 @@ Output:
 	<summary><strong>Wrap Up</strong></summary>
 Here we gonna jst explore some examples given in makerchip ide 
 
-## Conway Game Of Life
+### Conway Game Of Life
 
 Here we can study Hierarchy Concept
 
 ![Screenshot from 2023-08-21 18-49-01](https://github.com/ammulashiva/physical_design_using_asic/assets/140998900/82235760-a82b-4afd-9246-45e16243a840)
 
-## Pythagoran's theorem:
+### Pythagoran's theorem:
 
 Block Diagram:
 
@@ -762,6 +762,20 @@ Output:
 
 </details>
 
+## Day 4- Basic RISC-V CPU Micro_Architecture
 
+<details>
+	<summary><strong>Introduction to Simple RISC_V micro-architecture</strong></summary>
 
+</details>
+
+<details>
+	<summary><strong>Fetch and Decode</strong></summary>
+
+</details>
+
+<details>
+	<summary><strong>RISC-V Control Logic</strong></summary>
+
+</details>
 
