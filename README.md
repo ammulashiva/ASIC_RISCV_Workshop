@@ -1227,7 +1227,13 @@ We will now look into how to create a testbench for the functionality of the con
  
 </details>
 
+## Day 5- Complete Pipelined RISC-V CPU Micro_Architecture
 
+<details>
+	<summary><strong>Pipelining the CPU </strong></summary>
+
+ 
+</details>
 
 
 ## Reference 
