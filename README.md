@@ -1230,7 +1230,156 @@ We will now look into how to create a testbench for the functionality of the con
 ## Day 5- Complete Pipelined RISC-V CPU Micro_Architecture
 
 <details>
-	<summary><strong>Pipelining the CPU </strong></summary>
+	
+<summary><strong>Pipelining the CPU</strong></summary>
+
+Under this section, we will look into pipelining and its benefits, and pipeline the RISC-V CPU design. We will go over the possible hazards and how to work around to avoid hazards.
+
+First of all it is important to understand pipelining. It streamlines the process of retiming and considerably reducing the occurrence of functional errors. This technique enables faster computational tasks. We have listed the various benefits of pipelining as follows 
+
+- Increased throughput
+- Reduced latency
+- Better resource utilization
+- Improved parallelism
+- Smoother performance
+- Scalability
+- Faster clock speeds
+- Reduced dependencies
+- Flexibility
+- Efficient resource sharing
+
+
+As previously explained, establishing the pipeline is a straightforward process of incorporating stages labelled as @1, @2, and so on. A visual representation of the pipelining setup is provided below. In TL Verilog, it's important to note that there is no strict requirement to define the pipeline stages in a specific systematic order, providing an extra layer of benefit.
+
+The hazards that can arise in pipelining a design are listed as 
+
+1. Control flow hazard
+2. Read after Write hazard
+
+Now, first we will look into how to pipeline the system, then will tackle the incoming hazards.
+
+***Creating 3-Cycle Valid Signal***
+- We make a start pulse to reset the previous cycle
+- The we make a 3 cycle loop of valid pulses.
+
+- Schematic Diagram for the design
+
+![Screenshot from 2023-08-26 11-41-33](https://github.com/Shant1R/RISC-V/assets/59409568/3a606141-01ed-4d92-985c-1721d41bf3d5)
+
+- Code for Makerchip IDE implementation.
+```bash
+	$valid = $reset ? 1'b0 : ($start) ? 1'b1 : (>>3$valid) ;
+	$start_int = $reset ? 1'b0 : 1'b1;
+	$start = $reset ? 1'b0 : ($start_int && !>>1$start_int);
+
+``` 
+
+***Invalid Cycles Adjustments***
+
+- Once we have created a 3 cycles with valid cycles, we get cycles in which there are non valid cycles.
+- We have to make sure invalid instruction does write in the register files and PC.
+- Schematic to be implemented
+
+![Screenshot from 2023-08-26 11-57-03](https://github.com/Shant1R/RISC-V/assets/59409568/052e6f9a-f931-47c0-ab4b-4d965ac4728b)
+
+- TLverilog code for implementation on Makerchip IDE.
+
+```bash
+// introducing valid_taken_br
+$valid_taken_br = $valid && $taken_branch;
+
+// updating the PC
+$pc[31:0] = >>1$reset ? 32'b0 : (>>1$valid_taken_br)? (>>1$br_target_pc) : (>>1$pc + 32'd4);
+         
+```
+
+***Logic Distribution into 3-Cycles***
+- Under this step we look into how to update the design to execute the logic into 3 cycles.
+- Schematic for distribution
+  
+![Screenshot from 2023-08-26 12-17-15](https://github.com/Shant1R/RISC-V/assets/59409568/0f8df85a-1c88-43c3-9f98-885be98ab6ed)
+
+- **Implementation of 3-Cycle Pipeline over MakerChip IDE.**
+
+![Screenshot from 2023-08-26 13-45-11](https://github.com/Shant1R/RISC-V/assets/59409568/70257912-ee35-48f1-a691-5ef7a2e73d41)
+
+</details>
+
+<details>
+	
+<summary><strong>Solutions to Pipelining Hazards</strong></summary>
+
+We will look into how to get past the pipeline hazards.
+
+- One such hazards, is ***read after write hazard***.
+- Schematic to tackle this is given below
+
+![Screenshot from 2023-08-26 13-52-59](https://github.com/Shant1R/RISC-V/assets/59409568/0cc278bb-a3a0-4bd1-b5bf-a1615fd5077e)
+
+- Code introduced to the CPU for the tackle
+
+```bash
+	$src1_value[31:0] = ((>>1$rf_wr_en) && (>>1$rd == $rs1 )) ? (>>1$result): $rf_rd_data1; 
+	$src2_value[31:0] = ((>>1$rf_wr_en) && (>>1$rd == $rs2 )) ? (>>1$result) : $rf_rd_data2;
+```
+
+- Now, we look into how to rectify the branch paths in the CPU core developed.
+- Scehmatic to rectify the brancg path followed
+
+![Screenshot from 2023-08-26 14-03-51](https://github.com/Shant1R/RISC-V/assets/59409568/be7b7145-cef0-40f5-a546-b6e321e019cc)
+
+- Code Introduced
+```bash
+ 	$pc[31:0] = (>>1$reset) ? 32'b0 : (>>3$valid_taken_br) ? (>>3$br_tgt_pc) :  (>>3$int_pc)  ;
+
+
+	// we will comment off the valid line
+	//$valid = $reset ? 1'b0 : ($start) ? 1'b1 : (>>3$valid) ; 
+```
+
+- Now, we will decode the remaining ***RV32I Base Instruction Set***. Can refer this page for a detailed discription --> [LINK](https://msyksphinz-self.github.io/riscv-isadoc/html/rvi.html)
+- Once we complete the decoding, we finish the ALU logic for the decode instruction set.
+- Complete implementation on Makerchip IDE.
+
+![Screenshot from 2023-08-26 14-17-12](https://github.com/Shant1R/RISC-V/assets/59409568/a987207e-3859-49d1-adfd-a5bc1c67fa09)
+
+ 
+</details>
+
+<details>
+	
+<summary><strong>Load/Store Instructions and Completing the CPU</strong></summary>
+
+Under this section, we will look into how to add the load and store data from register files and test program, followed by instantiation of the data memory unit. Towards the end we will look into how to generate branch control logic for the jump statements.
+
+- Schematic for how to redirect the load.
+
+![Screenshot from 2023-08-26 14-29-31](https://github.com/Shant1R/RISC-V/assets/59409568/3393e839-1c5d-47dd-baec-bd44656e5bf1)
+
+
+- Now, we look into the schematic flow to load data and implement this on makerchip.
+ 
+![Screenshot from 2023-08-26 14-30-53](https://github.com/Shant1R/RISC-V/assets/59409568/3dc7b2aa-4451-44d9-92a8-c6f16f91f1aa)
+
+- Now we begin with creating the data memory.
+- The block diagram for the memory structure, representing the inputs and outputs for the memory block are as follows.
+
+![Screenshot from 2023-08-26 14-34-12](https://github.com/Shant1R/RISC-V/assets/59409568/add76498-4e3a-4d62-ac83-a92a1780f8e4)
+
+- After the memory is instantiated, we try to load and store using different register and have a hands-on practice.
+
+- The final being is the integration of control for branching of jump statements.
+
+- The scehmatic diagram showing the implemetation of jump statement logic
+
+![Screenshot from 2023-08-26 14-36-14](https://github.com/Shant1R/RISC-V/assets/59409568/0754a026-2afe-4253-aa9b-bc8644095e4c)
+
+***Final Implementaion on Makerchip IDE***
+![Screenshot from 2023-08-26 14-45-13](https://github.com/Shant1R/RISC-V/assets/59409568/c5b67fa3-4dd4-4b07-a226-47976682339f)
+
+***Diagram Generated along with the waveform and visualisation***
+![Screenshot from 2023-08-24 12-04-32](https://github.com/Shant1R/RISC-V/assets/59409568/c4a5d9ff-36ec-46c5-a3e1-8c0a969b47c5)
+
 
  
 </details>
