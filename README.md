@@ -1264,7 +1264,7 @@ Now, first we will look into how to pipeline the system, then will tackle the in
 
 - Schematic Diagram for the design
 
-![Screenshot from 2023-08-26 11-41-33](https://github.com/Shant1R/RISC-V/assets/59409568/3a606141-01ed-4d92-985c-1721d41bf3d5)
+![Screenshot from 2023-08-29 22-58-26](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/61433146-a7c9-47f1-82c1-267c8b27e544)
 
 - Code for Makerchip IDE implementation.
 ```bash
@@ -1280,7 +1280,7 @@ Now, first we will look into how to pipeline the system, then will tackle the in
 - We have to make sure invalid instruction does write in the register files and PC.
 - Schematic to be implemented
 
-![Screenshot from 2023-08-26 11-57-03](https://github.com/Shant1R/RISC-V/assets/59409568/052e6f9a-f931-47c0-ab4b-4d965ac4728b)
+![Screenshot from 2023-08-29 22-58-17](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/31ccf0a3-a1db-440d-8997-a58033c1bdd9)
 
 - TLverilog code for implementation on Makerchip IDE.
 
@@ -1297,11 +1297,11 @@ $pc[31:0] = >>1$reset ? 32'b0 : (>>1$valid_taken_br)? (>>1$br_target_pc) : (>>1$
 - Under this step we look into how to update the design to execute the logic into 3 cycles.
 - Schematic for distribution
   
-![Screenshot from 2023-08-26 12-17-15](https://github.com/Shant1R/RISC-V/assets/59409568/0f8df85a-1c88-43c3-9f98-885be98ab6ed)
+![Screenshot from 2023-08-29 22-57-59](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/8844cb41-e8f3-4d2e-b279-9fb3e03f9d0c)
 
 - **Implementation of 3-Cycle Pipeline over MakerChip IDE.**
 
-![Screenshot from 2023-08-26 13-45-11](https://github.com/Shant1R/RISC-V/assets/59409568/70257912-ee35-48f1-a691-5ef7a2e73d41)
+![Screenshot from 2023-08-29 22-57-34](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/181ca0b0-9ee9-4718-bcdc-2bebaeca405c)
 
 </details>
 
@@ -1314,7 +1314,7 @@ We will look into how to get past the pipeline hazards.
 - One such hazards, is ***read after write hazard***.
 - Schematic to tackle this is given below
 
-![Screenshot from 2023-08-26 13-52-59](https://github.com/Shant1R/RISC-V/assets/59409568/0cc278bb-a3a0-4bd1-b5bf-a1615fd5077e)
+![Screenshot from 2023-08-29 22-57-09](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/86c08630-9e3e-42f4-b72f-26a1ff8d36d7)
 
 - Code introduced to the CPU for the tackle
 
@@ -1326,7 +1326,7 @@ We will look into how to get past the pipeline hazards.
 - Now, we look into how to rectify the branch paths in the CPU core developed.
 - Scehmatic to rectify the brancg path followed
 
-![Screenshot from 2023-08-26 14-03-51](https://github.com/Shant1R/RISC-V/assets/59409568/be7b7145-cef0-40f5-a546-b6e321e019cc)
+![Screenshot from 2023-08-29 22-56-59](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/9e318153-f8f6-4167-9c84-7427283a3bf5)
 
 - Code Introduced
 ```bash
@@ -1341,8 +1341,7 @@ We will look into how to get past the pipeline hazards.
 - Once we complete the decoding, we finish the ALU logic for the decode instruction set.
 - Complete implementation on Makerchip IDE.
 
-![Screenshot from 2023-08-26 14-17-12](https://github.com/Shant1R/RISC-V/assets/59409568/a987207e-3859-49d1-adfd-a5bc1c67fa09)
-
+![Screenshot from 2023-08-29 22-56-33](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/cc1234f1-c6c6-44f8-af52-26ec1a9669c9)
  
 </details>
 
@@ -1354,17 +1353,17 @@ Under this section, we will look into how to add the load and store data from re
 
 - Schematic for how to redirect the load.
 
-![Screenshot from 2023-08-26 14-29-31](https://github.com/Shant1R/RISC-V/assets/59409568/3393e839-1c5d-47dd-baec-bd44656e5bf1)
+![Screenshot from 2023-08-29 22-56-02](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/21e19a33-e899-408d-8363-99dc77de0bc8)
 
 
 - Now, we look into the schematic flow to load data and implement this on makerchip.
  
-![Screenshot from 2023-08-26 14-30-53](https://github.com/Shant1R/RISC-V/assets/59409568/3dc7b2aa-4451-44d9-92a8-c6f16f91f1aa)
+![Screenshot from 2023-08-29 22-55-53](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/b7edeb5b-c168-44e4-9927-0a19bf02a61f)
 
 - Now we begin with creating the data memory.
 - The block diagram for the memory structure, representing the inputs and outputs for the memory block are as follows.
 
-![Screenshot from 2023-08-26 14-34-12](https://github.com/Shant1R/RISC-V/assets/59409568/add76498-4e3a-4d62-ac83-a92a1780f8e4)
+![Screenshot from 2023-08-29 22-55-31](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/7faaf138-d427-4f47-b3da-7a0b7e7d44fd)
 
 - After the memory is instantiated, we try to load and store using different register and have a hands-on practice.
 
@@ -1372,13 +1371,12 @@ Under this section, we will look into how to add the load and store data from re
 
 - The scehmatic diagram showing the implemetation of jump statement logic
 
-![Screenshot from 2023-08-26 14-36-14](https://github.com/Shant1R/RISC-V/assets/59409568/0754a026-2afe-4253-aa9b-bc8644095e4c)
+![Screenshot from 2023-08-29 22-55-10](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/108e1c24-594a-4307-a642-8d0f89f3c7a1)
 
 ***Final Implementaion on Makerchip IDE***
-![Screenshot from 2023-08-26 14-45-13](https://github.com/Shant1R/RISC-V/assets/59409568/c5b67fa3-4dd4-4b07-a226-47976682339f)
 
+![Screenshot from 2023-08-29 22-54-40](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/efce00a3-6f57-4271-9064-8776da6824bd)
 
- 
 </details>
 
 
