@@ -1650,8 +1650,7 @@ Under this section, we will look into how to add the load and store data from re
    endmodule
 
 ```
-
-![final_code](./riscv_isa_labs/day_5/images/final_code.png) 
+![Screenshot from 2023-09-17 09-58-33](https://github.com/ammulashiva/ASIC_RISCV_Workshop/assets/140998900/cbc2e696-b9e5-417b-8864-5735f01ac2d3)
 
 
 </details>
